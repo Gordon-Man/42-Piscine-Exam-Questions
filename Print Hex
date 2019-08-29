@@ -1,0 +1,24 @@
+void	print_hex(int n)
+{
+	if (n >= 16)
+		print_hex(n / 16);
+	n = n % 16;
+	n += n < 10 ? '0' : 'a' - 10;
+	write(1, &n, 1);
+}
+
+/*
+check if given integer is greater than or equal to 16, that is our base case.
+
+modulo 16 gives us a number between 0 and 15
+
+if its greater than 9, we have to convert it to a character between a and f, 
+
+we also know that the number will be 15 or less due to % 16,
+
+so adding 87 to any number between 10 and 15 will give us the corresponding a-f character. 
+
+otherwise if its 0-9, just add '0' for the corresponding character
+
+once we get our character, we print.
+*/
